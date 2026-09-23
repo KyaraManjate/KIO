@@ -1,0 +1,885 @@
+/* =========================================================
+   KIO — DIZ-ME RESPONDER
+   Estética da página "Diz-me" da homepage
+   ========================================================= */
+
+
+/* =========================================================
+   VARIÁVEIS
+   ========================================================= */
+
+:root {
+
+    --cream: #f3eee3;
+    --cream-light: #f8f5ed;
+
+    --sage: #aab59d;
+    --sage-light: #cbd1c0;
+
+    --olive: #697052;
+    --olive-dark: #4d553d;
+
+    --green: #26352d;
+    --green-soft: #35463b;
+
+    --brown: #806653;
+    --brown-light: #a98d75;
+
+    --charcoal: #292b27;
+
+    --text: #30322d;
+    --muted: #77786e;
+
+    --line: rgba(48, 50, 45, .14);
+
+    --serif: "Playfair Display", Georgia, serif;
+    --sans: "DM Sans", Arial, sans-serif;
+}
+
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: var(--sans);
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+textarea {
+    font: inherit;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+}
+
+textarea {
+    resize: vertical;
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+   ========================================================= */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+
+/* =========================================================
+   TEXTURA
+   ========================================================= */
+
+.diz-noise {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 50;
+
+    opacity: .035;
+
+    background-image:
+        radial-gradient(
+            rgba(0, 0, 0, .8) .5px,
+            transparent .5px
+        );
+
+    background-size: 5px 5px;
+}
+
+
+/* =========================================================
+   ELEMENTOS DECORATIVOS
+   ========================================================= */
+
+.diz-orbit {
+    position: fixed;
+
+    border: 1px solid rgba(77, 85, 61, .14);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.diz-orbit-one {
+    width: 430px;
+    height: 430px;
+
+    right: -210px;
+    top: 150px;
+}
+
+.diz-orbit-two {
+    width: 280px;
+    height: 280px;
+
+    left: -160px;
+    bottom: 100px;
+
+    border-color: rgba(128, 102, 83, .14);
+}
+
+.diz-floating-word {
+    position: fixed;
+
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-style: italic;
+
+    opacity: .16;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.word-one {
+    right: 3%;
+    top: 34%;
+
+    transform: rotate(90deg);
+}
+
+.word-two {
+    left: 2%;
+    top: 54%;
+
+    transform: rotate(-90deg);
+}
+
+.word-three {
+    right: 7%;
+    bottom: 11%;
+
+    transform: rotate(-8deg);
+}
+
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
+.diz-header {
+    width: min(1200px, calc(100% - 48px));
+
+    min-height: 86px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+
+    z-index: 10;
+}
+
+.diz-logo {
+    font-family: var(--serif);
+
+    font-size: 1.65rem;
+    font-weight: 700;
+
+    letter-spacing: -.05em;
+
+    transition:
+        transform .3s ease,
+        opacity .3s ease;
+}
+
+.diz-logo:hover {
+    transform: translateY(-2px);
+    opacity: .7;
+}
+
+.diz-location {
+    display: flex;
+    align-items: baseline;
+    gap: 7px;
+
+    font-size: .72rem;
+
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
+}
+
+.diz-location span {
+    color: var(--muted);
+}
+
+.diz-location strong {
+    font-weight: 700;
+}
+
+.diz-close {
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--line);
+
+    border-radius: 50%;
+
+    font-size: 1.25rem;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease;
+}
+
+.diz-close:hover {
+    background: var(--green);
+    color: var(--cream);
+
+    transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.diz-intro {
+    width: min(1000px, calc(100% - 48px));
+
+    min-height: 520px;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+.intro-decoration {
+    display: flex;
+
+    gap: 8px;
+
+    margin-bottom: 28px;
+}
+
+.intro-decoration span {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+}
+
+.intro-decoration span:nth-child(1) {
+    background: var(--olive);
+}
+
+.intro-decoration span:nth-child(2) {
+    background: var(--brown);
+}
+
+.intro-decoration span:nth-child(3) {
+    background: var(--sage);
+}
+
+.diz-kicker {
+    margin-bottom: 18px;
+
+    color: var(--olive);
+
+    font-size: .7rem;
+    font-weight: 700;
+
+    letter-spacing: .15em;
+
+    text-transform: uppercase;
+}
+
+.diz-intro h1 {
+    max-width: 850px;
+
+    font-family: var(--serif);
+
+    font-size: clamp(3.2rem, 7vw, 6.5rem);
+
+    font-weight: 500;
+
+    line-height: .94;
+
+    letter-spacing: -.05em;
+}
+
+.diz-intro h1 em {
+    color: var(--brown);
+
+    font-weight: 500;
+}
+
+.diz-intro p {
+    max-width: 530px;
+
+    margin-top: 30px;
+
+    color: var(--muted);
+
+    font-size: .95rem;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   ÁREA DE ESCRITA
+   ========================================================= */
+
+.diz-writing {
+    width: min(900px, calc(100% - 48px));
+
+    margin: 0 auto;
+
+    padding-bottom: 130px;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+.writing-heading {
+    display: flex;
+
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 22px;
+}
+
+.section-number {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--olive);
+
+    font-family: var(--serif);
+
+    font-size: 1.2rem;
+}
+
+.writing-heading h2 {
+    font-family: var(--serif);
+
+    font-size: clamp(2rem, 4vw, 3.3rem);
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    letter-spacing: -.04em;
+}
+
+.writing-note {
+    padding-bottom: 5px;
+
+    color: var(--muted);
+
+    font-size: .65rem;
+
+    letter-spacing: .12em;
+
+    text-transform: uppercase;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   CAIXA DE TEXTO
+   ========================================================= */
+
+.writing-box {
+    background: var(--cream-light);
+
+    border: 1px solid var(--line);
+
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 60px rgba(38, 53, 45, .06);
+
+    transition:
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.writing-box:focus-within {
+    border-color: rgba(77, 85, 61, .35);
+
+    box-shadow:
+        0 25px 70px rgba(38, 53, 45, .1);
+}
+
+.writing-box textarea {
+    width: 100%;
+
+    min-height: 320px;
+
+    display: block;
+
+    padding: 35px;
+
+    border: 0;
+
+    outline: 0;
+
+    background: transparent;
+
+    color: var(--text);
+
+    font-family: var(--serif);
+
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+
+    line-height: 1.55;
+}
+
+.writing-box textarea::placeholder {
+    color: rgba(119, 120, 110, .55);
+
+    font-style: italic;
+}
+
+.writing-footer {
+    min-height: 60px;
+
+    padding: 0 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    border-top: 1px solid var(--line);
+}
+
+.character-count {
+    color: var(--muted);
+
+    font-size: .65rem;
+
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
+}
+
+.clear-button {
+    padding: 8px 0;
+
+    background: transparent;
+
+    color: var(--muted);
+
+    font-size: .65rem;
+
+    font-weight: 700;
+
+    letter-spacing: .1em;
+
+    text-transform: uppercase;
+
+    transition: color .25s ease;
+}
+
+.clear-button:hover {
+    color: var(--brown);
+}
+
+
+/* =========================================================
+   BOTÃO ENVIAR
+   ========================================================= */
+
+.send-button {
+    width: 100%;
+
+    min-height: 68px;
+
+    margin-top: 16px;
+
+    padding: 16px 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    border-radius: 18px;
+
+    background: var(--green);
+
+    color: var(--cream);
+
+    font-size: .72rem;
+
+    font-weight: 700;
+
+    letter-spacing: .1em;
+
+    text-transform: uppercase;
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+}
+
+.send-button:hover {
+    transform: translateY(-3px);
+
+    background: var(--green-soft);
+
+    box-shadow:
+        0 15px 35px rgba(38, 53, 45, .16);
+}
+
+.send-arrow {
+    font-size: 1.2rem;
+
+    transition: transform .3s ease;
+}
+
+.send-button:hover .send-arrow {
+    transform: translate(4px, -4px);
+}
+
+
+/* =========================================================
+   FEEDBACK
+   ========================================================= */
+
+.message-feedback {
+    display: none;
+
+    margin-top: 20px;
+
+    padding: 24px;
+
+    gap: 18px;
+
+    align-items: flex-start;
+
+    border-radius: 18px;
+
+    background: var(--sage);
+
+    color: var(--green);
+
+    animation: feedbackIn .45s ease both;
+}
+
+.message-feedback.visible {
+    display: flex;
+}
+
+@keyframes feedbackIn {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+.feedback-symbol {
+    width: 32px;
+    height: 32px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(38, 53, 45, .25);
+
+    border-radius: 50%;
+
+    font-size: 1.1rem;
+}
+
+.message-feedback strong {
+    font-family: var(--serif);
+
+    font-size: 1.3rem;
+
+    font-weight: 500;
+}
+
+.message-feedback p {
+    max-width: 600px;
+
+    margin-top: 6px;
+
+    font-size: .8rem;
+
+    line-height: 1.7;
+
+    opacity: .75;
+}
+
+
+/* =========================================================
+   REFLEXÃO
+   ========================================================= */
+
+.diz-reflection {
+    width: min(900px, calc(100% - 48px));
+
+    margin: 0 auto;
+
+    padding: 100px 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+}
+
+.reflection-line {
+    width: 70px;
+
+    height: 1px;
+
+    margin-bottom: 30px;
+
+    background: var(--line);
+}
+
+.diz-reflection p {
+    max-width: 650px;
+
+    font-family: var(--serif);
+
+    font-size: clamp(1.5rem, 3vw, 2.3rem);
+
+    line-height: 1.35;
+}
+
+.diz-reflection p em {
+    font-weight: 400;
+}
+
+.diz-reflection > span {
+    margin-top: 20px;
+
+    color: var(--olive);
+
+    font-size: .65rem;
+
+    font-weight: 700;
+
+    letter-spacing: .12em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   VOLTAR
+   ========================================================= */
+
+.diz-back {
+    width: min(1200px, calc(100% - 48px));
+
+    margin: 0 auto;
+
+    padding: 30px 0 80px;
+
+    border-top: 1px solid var(--line);
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.diz-back a {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: .7rem;
+
+    font-weight: 700;
+
+    letter-spacing: .1em;
+
+    text-transform: uppercase;
+
+    transition:
+        gap .3s ease,
+        color .3s ease;
+}
+
+.diz-back a:hover {
+    gap: 16px;
+
+    color: var(--olive);
+}
+
+
+/* =========================================================
+   RESPONSIVO — TABLET
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .diz-intro {
+        min-height: 450px;
+    }
+
+    .writing-heading {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    .writing-note {
+        text-align: left;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVO — TELEMÓVEL
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .diz-header,
+    .diz-intro,
+    .diz-writing,
+    .diz-reflection,
+    .diz-back {
+        width: min(100% - 28px, 1200px);
+    }
+
+    .diz-header {
+        min-height: 72px;
+    }
+
+    .diz-location {
+        display: none;
+    }
+
+    .diz-intro {
+        min-height: 430px;
+    }
+
+    .diz-intro h1 {
+        font-size: 3.2rem;
+    }
+
+    .diz-intro p {
+        font-size: .88rem;
+    }
+
+    .diz-writing {
+        padding-bottom: 90px;
+    }
+
+    .writing-box {
+        border-radius: 22px;
+    }
+
+    .writing-box textarea {
+        min-height: 280px;
+
+        padding: 25px;
+
+        font-size: 1.35rem;
+    }
+
+    .writing-footer {
+        padding: 0 20px;
+    }
+
+    .send-button {
+        min-height: 62px;
+
+        border-radius: 15px;
+    }
+
+    .message-feedback {
+        padding: 20px;
+    }
+
+    .diz-reflection {
+        padding: 80px 0;
+    }
+
+    .diz-reflection p {
+        font-size: 1.5rem;
+    }
+
+}

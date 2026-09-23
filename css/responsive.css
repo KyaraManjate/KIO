@@ -1,0 +1,934 @@
+/* =========================================================
+   KIO — RESPONSIVE.CSS
+   Adaptação para tablets e telemóveis
+   Mantém a estética original do KIO
+   ========================================================= */
+
+
+/* =========================================================
+   TABLETS
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    /* HEADER */
+
+    .site-header {
+        padding: 0 5vw;
+    }
+
+    .main-nav {
+        gap: 1.4rem;
+    }
+
+    .main-nav a {
+        font-size: .68rem;
+    }
+
+
+    /* SECÇÕES */
+
+    .section {
+        padding-left: 6vw;
+        padding-right: 6vw;
+    }
+
+
+    /* HERO */
+
+    .hero-content {
+        width: 70vw;
+    }
+
+    .hero h1 {
+        font-size: clamp(4rem, 9vw, 6.5rem);
+    }
+
+    .hero-visual {
+        right: 5vw;
+        transform: scale(.85);
+    }
+
+    .hero-words {
+        right: 7vw;
+    }
+
+
+    /* KIO É SOBRE TI */
+
+    .communication-composition {
+        width: 90vw;
+        margin-left: 0;
+    }
+
+    .about-reflection {
+        margin-left: 0;
+    }
+
+
+    /* EXPLORAR */
+
+    .explore-list {
+        width: 90vw;
+    }
+
+    .explore-decoration {
+        right: 5vw;
+    }
+
+
+    /* PERCURSO */
+
+    .journey-path {
+        width: 80%;
+    }
+
+
+    /* FORMAÇÃO */
+
+    .formation-section {
+        gap: 2rem;
+    }
+
+    .formation-content {
+        max-width: 52%;
+    }
+
+    .formation-visual {
+        width: 350px;
+        height: 350px;
+        margin-right: 0;
+        transform: scale(.9);
+    }
+
+    .circle-large {
+        left: 35px;
+    }
+
+    .circle-medium {
+        left: 85px;
+    }
+
+    .circle-small {
+        left: 135px;
+    }
+
+
+    /* FOOTER */
+
+    .footer-information {
+        grid-template-columns: repeat(3, 130px);
+        gap: 2rem;
+    }
+
+    .footer-brand h2 {
+        font-size: 5rem;
+    }
+}
+
+
+/* =========================================================
+   TABLETS PEQUENOS / ECRÃS MÉDIOS
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    /* HEADER */
+
+    .site-header {
+        height: 72px;
+    }
+
+    .main-nav {
+        display: none;
+    }
+
+
+    /* MENU */
+
+    .menu-overlay {
+        top: 62px;
+        right: 4vw;
+
+        width: min(360px, 90vw);
+    }
+
+
+    /* SECÇÕES */
+
+    .section {
+        min-height: 100svh;
+
+        padding:
+            7rem
+            7vw
+            5rem;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        align-items: center;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero h1 {
+        max-width: 700px;
+
+        font-size:
+            clamp(3.8rem, 11vw, 6rem);
+    }
+
+    .hero-description {
+        max-width: 430px;
+    }
+
+    .hero-visual {
+        right: 2vw;
+        top: 32%;
+
+        opacity: .75;
+    }
+
+    .hero-words {
+        right: 6vw;
+        bottom: 15%;
+    }
+
+
+    /* SOBRE TI */
+
+    .about-intro h2 {
+        font-size:
+            clamp(3.7rem, 10vw, 6rem);
+    }
+
+    .communication-composition {
+        height: 260px;
+    }
+
+
+    /* EXPLORAR */
+
+    .section-heading h2 {
+        font-size:
+            clamp(3.7rem, 10vw, 6rem);
+    }
+
+    .explore-info h3 {
+        font-size: 1.8rem;
+    }
+
+
+    /* PERCURSO */
+
+    .journey-heading h2 {
+        font-size:
+            clamp(3.7rem, 10vw, 6rem);
+    }
+
+    .journey-path {
+        width: 100%;
+        bottom: 2%;
+    }
+
+
+    /* DIZ-ME */
+
+    .say-content {
+        width: 90vw;
+    }
+
+    .say-content h2 {
+        font-size:
+            clamp(3.8rem, 11vw, 6rem);
+    }
+
+    .say-circle {
+        width: 140px;
+        height: 140px;
+    }
+
+
+    /* FORMAÇÃO */
+
+    .formation-section {
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .formation-content {
+        max-width: 100%;
+    }
+
+    .formation-content h2 {
+        font-size:
+            clamp(3.7rem, 10vw, 6rem);
+    }
+
+    .formation-visual {
+        align-self: center;
+
+        width: 360px;
+        height: 360px;
+
+        margin-top: 1rem;
+    }
+
+
+    /* FOOTER */
+
+    .footer-main {
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    .footer-information {
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   TELEMÓVEIS
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    /* =====================================================
+       HEADER
+       ===================================================== */
+
+    .site-header {
+        height: 68px;
+
+        padding:
+            0 5vw;
+    }
+
+    .logo {
+        font-size: .9rem;
+    }
+
+    .menu-toggle {
+        width: 42px;
+        height: 42px;
+    }
+
+    .menu-toggle span {
+        width: 19px;
+    }
+
+
+    /* =====================================================
+       MENU FLUTUANTE
+       ===================================================== */
+
+    .menu-overlay {
+        top: 60px;
+        right: 4vw;
+
+        width: calc(100vw - 8vw);
+
+        padding:
+            1rem 1.2rem;
+
+        border-radius: 14px;
+    }
+
+    .menu-navigation a {
+        grid-template-columns:
+            30px 1fr;
+
+        padding: .9rem .15rem;
+
+        font-size: .82rem;
+    }
+
+
+    /* =====================================================
+       SECÇÕES
+       ===================================================== */
+
+    .section {
+        min-height: 100svh;
+
+        padding:
+            6rem
+            6vw
+            4rem;
+    }
+
+
+    /* =====================================================
+       HERO
+       ===================================================== */
+
+    .hero {
+        min-height: 100svh;
+
+        padding-top: 7rem;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-kicker {
+        margin-bottom: 1.7rem;
+
+        font-size: .7rem;
+    }
+
+    .hero h1 {
+        max-width: 100%;
+
+        font-size:
+            clamp(3.2rem, 15vw, 5rem);
+
+        line-height: .9;
+    }
+
+    .hero-description {
+        max-width: 90%;
+
+        margin-top: 2rem;
+
+        font-size: .82rem;
+        line-height: 1.7;
+    }
+
+    .hero-visual {
+        right: -20px;
+        top: 25%;
+
+        transform: scale(.6);
+
+        opacity: .55;
+    }
+
+    .hero-words {
+        right: 7vw;
+        bottom: 16%;
+
+        gap: .65rem;
+
+        font-size: .75rem;
+    }
+
+    .hero-bottom {
+        left: 6vw;
+        bottom: 1.5rem;
+    }
+
+    .scroll-indicator {
+        font-size: 1rem;
+    }
+
+
+    /* =====================================================
+       KIO É SOBRE TI
+       ===================================================== */
+
+    .about-kicker {
+        top: 4.5rem;
+        left: 6vw;
+
+        font-size: .7rem;
+    }
+
+    .about-intro {
+        padding-top: 7rem;
+    }
+
+    .about-intro h2 {
+        font-size:
+            clamp(3.2rem, 14vw, 5rem);
+    }
+
+    .communication-composition {
+        width: 100%;
+        height: 300px;
+
+        margin-top: 2rem;
+    }
+
+    .communication-route {
+        width: 100%;
+    }
+
+    .communication-word {
+        font-size: .75rem;
+    }
+
+    .word-comunica {
+        left: 4%;
+        top: 30%;
+    }
+
+    .word-expressa {
+        left: 30%;
+        top: 62%;
+    }
+
+    .word-pratica {
+        left: 58%;
+        top: 25%;
+    }
+
+    .word-evolui {
+        right: 0;
+        top: 48%;
+    }
+
+    .about-reflection {
+        max-width: 90%;
+
+        margin-top: 1rem;
+
+        font-size: .8rem;
+        line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       EXPLORA
+       ===================================================== */
+
+    .explore-universe {
+        padding-top: 6rem;
+    }
+
+    .explore-kicker {
+        top: 4.5rem;
+        left: 6vw;
+
+        font-size: .7rem;
+    }
+
+    .section-heading {
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+    }
+
+    .section-heading h2 {
+        font-size:
+            clamp(3.2rem, 14vw, 5rem);
+    }
+
+    .explore-list {
+        width: 100%;
+    }
+
+    .explore-item {
+        grid-template-columns:
+            35px
+            1fr
+            25px;
+
+        gap: .5rem;
+
+        padding: 1.4rem 0;
+    }
+
+    .explore-number {
+        font-size: .55rem;
+    }
+
+    .explore-info h3 {
+        font-size: 1.45rem;
+    }
+
+    .explore-info p {
+        max-width: 90%;
+
+        font-size: .7rem;
+        line-height: 1.55;
+    }
+
+    .explore-arrow {
+        font-size: 1rem;
+    }
+
+    .explore-decoration {
+        display: none;
+    }
+
+
+    /* =====================================================
+       PERCURSO
+       ===================================================== */
+
+    .journey {
+        padding-top: 7rem;
+    }
+
+    .journey-kicker {
+        top: 4.5rem;
+        left: 6vw;
+
+        font-size: .7rem;
+    }
+
+    .journey-heading h2 {
+        font-size:
+            clamp(3.2rem, 14vw, 5rem);
+    }
+
+    .journey-content {
+        max-width: 100%;
+
+        margin-top: 2rem;
+    }
+
+    .journey-content p {
+        font-size: .8rem;
+        line-height: 1.7;
+    }
+
+    .text-button {
+        font-size: .7rem;
+    }
+
+    /*
+       A estrada permanece visível no telemóvel,
+       mas fica mais baixa para não interferir
+       com o texto.
+    */
+
+    .journey-path {
+        width: 120%;
+        height: 180px;
+
+        right: -20%;
+        bottom: 3%;
+    }
+
+
+    /* =====================================================
+       PEGADAS
+       ===================================================== */
+
+    .footprint {
+        width: 17px;
+        height: 30px;
+    }
+
+    .footprint::after {
+        width: 5px;
+        height: 7px;
+    }
+
+    .footprint-one {
+        left: 10%;
+        bottom: 70px;
+    }
+
+    .footprint-two {
+        left: 25%;
+        bottom: 105px;
+    }
+
+    .footprint-three {
+        left: 40%;
+        bottom: 65px;
+    }
+
+    .footprint-four {
+        left: 55%;
+        bottom: 95px;
+    }
+
+
+    /* =====================================================
+       DIZ-ME
+       ===================================================== */
+
+    .say-section {
+        padding:
+            6rem
+            6vw;
+    }
+
+    .eyebrow {
+        margin-bottom: 1.5rem;
+
+        font-size: .7rem;
+    }
+
+    .say-content {
+        width: 100%;
+    }
+
+    .say-content h2 {
+        font-size:
+            clamp(3.2rem, 14vw, 5rem);
+    }
+
+    .say-button {
+        margin-top: 2rem;
+
+        padding: .8rem 1.3rem;
+
+        font-size: .7rem;
+    }
+
+    .say-circle {
+        width: 100px;
+        height: 100px;
+
+        right: 5%;
+        top: 12%;
+    }
+
+    .say-shape {
+        width: 32px;
+        height: 32px;
+
+        left: 8%;
+        bottom: 15%;
+    }
+
+    .say-line {
+        width: 55px;
+
+        left: 7%;
+        top: 25%;
+    }
+
+
+    /* =====================================================
+       FORMAÇÃO
+       ===================================================== */
+
+    .formation-section {
+        padding-top: 7rem;
+        padding-bottom: 4rem;
+    }
+
+    .formation-question {
+        margin-bottom: 1rem;
+
+        font-size: .78rem;
+    }
+
+    .formation-content h2 {
+        font-size:
+            clamp(3.2rem, 14vw, 5rem);
+    }
+
+    .formation-description {
+        max-width: 100%;
+
+        margin-top: 1.7rem;
+
+        font-size: .8rem;
+        line-height: 1.7;
+    }
+
+    .formation-visual {
+        width: 290px;
+        height: 290px;
+
+        margin:
+            2rem auto 0;
+
+        transform: scale(.85);
+    }
+
+    .circle-large {
+        width: 210px;
+        height: 210px;
+
+        left: 40px;
+        top: 40px;
+    }
+
+    .circle-medium {
+        width: 140px;
+        height: 140px;
+
+        left: 75px;
+        top: 75px;
+    }
+
+    .circle-small {
+        width: 60px;
+        height: 60px;
+
+        left: 115px;
+        top: 115px;
+    }
+
+    .moving-ball {
+        width: 9px;
+        height: 9px;
+    }
+
+    .ball-one {
+        left: 30px;
+        top: 55px;
+    }
+
+    .ball-two {
+        right: 25px;
+        top: 120px;
+    }
+
+    .ball-three {
+        left: 100px;
+        bottom: 30px;
+    }
+
+    .moving-line {
+        width: 65px;
+    }
+
+    .line-one {
+        top: 55px;
+        right: 0;
+    }
+
+    .line-two {
+        bottom: 65px;
+        left: 0;
+    }
+
+    .floating-word {
+        font-size: .75rem;
+    }
+
+    .word-leitura {
+        top: 5px;
+        left: 100px;
+    }
+
+    .word-expressao {
+        right: 0;
+        bottom: 100px;
+    }
+
+    .word-oratoria {
+        left: 30px;
+        bottom: 0;
+    }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+    .site-footer {
+        padding:
+            3.5rem
+            6vw
+            1.2rem;
+    }
+
+    .footer-main {
+        padding-bottom: 3.5rem;
+
+        gap: 3rem;
+    }
+
+    .footer-brand h2 {
+        font-size:
+            clamp(4rem, 18vw, 6rem);
+    }
+
+    .footer-brand p {
+        max-width: 280px;
+
+        margin-top: 1.5rem;
+
+        font-size: .68rem;
+    }
+
+    .footer-information {
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 1.2rem;
+    }
+
+    .footer-label {
+        margin-bottom: .7rem;
+
+        font-size: .55rem;
+    }
+
+    .footer-column p {
+        font-size: .62rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+
+        gap: .5rem;
+
+        font-size: .55rem;
+    }
+}
+
+
+/* =========================================================
+   TELEMÓVEIS MUITO PEQUENOS
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .section {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    .hero h1,
+    .about-intro h2,
+    .section-heading h2,
+    .journey-heading h2,
+    .say-content h2,
+    .formation-content h2 {
+        font-size: 3rem;
+    }
+
+    .communication-composition {
+        height: 250px;
+    }
+
+    .explore-info h3 {
+        font-size: 1.3rem;
+    }
+
+    .formation-visual {
+        transform: scale(.72);
+        transform-origin: center;
+        margin-top: 0;
+        margin-bottom: -30px;
+    }
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

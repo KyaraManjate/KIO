@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="KIO — Diz-me o que queres dizer."
+    >
+
+    <meta
+        name="theme-color"
+        content="#26352d"
+    >
+
+    <title>KIO — Diz-me</title>
+
+
+    <!-- =====================================================
+         FONTES
+         ===================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         CSS DESTA PÁGINA
+         ===================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/diz-me-responder.css"
+    >
+
+</head>
+
+
+<body class="diz-me-responder-page">
+
+
+    <!-- =====================================================
+         TEXTURA
+         ===================================================== -->
+
+    <div
+        class="diz-noise"
+        aria-hidden="true"
+    ></div>
+
+
+    <!-- =====================================================
+         ELEMENTOS DECORATIVOS
+         ===================================================== -->
+
+    <div
+        class="diz-orbit diz-orbit-one"
+        aria-hidden="true"
+    ></div>
+
+    <div
+        class="diz-orbit diz-orbit-two"
+        aria-hidden="true"
+    ></div>
+
+
+    <span
+        class="diz-floating-word word-one"
+        aria-hidden="true"
+    >
+        pensa
+    </span>
+
+    <span
+        class="diz-floating-word word-two"
+        aria-hidden="true"
+    >
+        escreve
+    </span>
+
+    <span
+        class="diz-floating-word word-three"
+        aria-hidden="true"
+    >
+        diz
+    </span>
+
+
+    <!-- =====================================================
+         CABEÇALHO
+         ===================================================== -->
+
+    <header class="diz-header">
+
+        <a
+            href="../index.html"
+            class="diz-logo"
+            aria-label="Voltar ao início"
+        >
+            KIO
+        </a>
+
+
+        <div class="diz-location">
+
+            <span>estás em</span>
+
+            <strong>Diz-me</strong>
+
+        </div>
+
+
+        <a
+            href="../index.html"
+            class="diz-close"
+            aria-label="Voltar ao início"
+        >
+            ×
+        </a>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+         ===================================================== -->
+
+    <main>
+
+
+        <!-- =================================================
+             INTRODUÇÃO
+             ================================================= -->
+
+        <section class="diz-intro">
+
+            <div class="intro-decoration">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+
+            <span class="diz-kicker">
+                agora é contigo
+            </span>
+
+
+            <h1>
+                Então...
+                <br>
+                o que queres <em>dizer?</em>
+            </h1>
+
+
+            <p>
+                Nem tudo aquilo que queremos dizer
+                precisa de ser dito em voz alta.
+                Às vezes, o primeiro passo é
+                encontrar as palavras.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             ÁREA DE ESCRITA
+             ================================================= -->
+
+        <section class="diz-writing">
+
+            <div class="writing-heading">
+
+                <div>
+
+                    <span class="section-number">
+                        01
+                    </span>
+
+                    <h2>
+                        Diz-me.
+                    </h2>
+
+                </div>
+
+
+                <span class="writing-note">
+                    escreve sem pensar demasiado
+                </span>
+
+            </div>
+
+
+            <div class="writing-box">
+
+
+                <!-- =================================================
+                     CAMPO DE TEXTO
+                     ================================================= -->
+
+                <label
+                    for="messageInput"
+                    class="sr-only"
+                >
+                    Escreve o que queres dizer
+                </label>
+
+
+                <textarea
+                    id="messageInput"
+                    maxlength="1000"
+                    placeholder="Escreve aqui aquilo que tens para dizer..."
+                    aria-describedby="characterCount"
+                ></textarea>
+
+
+                <!-- =================================================
+                     RODAPÉ DA CAIXA
+                     ================================================= -->
+
+                <div class="writing-footer">
+
+                    <span
+                        id="characterCount"
+                        class="character-count"
+                    >
+                        0 / 1000
+                    </span>
+
+
+                    <button
+                        type="button"
+                        id="clearMessage"
+                        class="clear-button"
+                    >
+                        limpar
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 BOTÃO PRINCIPAL
+                 ================================================= -->
+
+            <button
+                type="button"
+                id="sendMessage"
+                class="send-button"
+            >
+
+                <span>
+                    guardar o que disseste
+                </span>
+
+                <span class="send-arrow">
+                    ↗
+                </span>
+
+            </button>
+
+
+            <!-- =================================================
+                 MENSAGEM DE CONFIRMAÇÃO
+                 ================================================= -->
+
+            <div
+                id="messageFeedback"
+                class="message-feedback"
+                aria-live="polite"
+            >
+
+                <span class="feedback-symbol">
+                    +
+                </span>
+
+                <div>
+
+                    <strong>
+                        ficou dito.
+                    </strong>
+
+                    <p>
+                        Nem sempre precisamos de uma resposta.
+                        Às vezes, precisamos apenas de dar espaço
+                        ao que queremos dizer.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FRASE KIO
+             ================================================= -->
+
+        <section class="diz-reflection">
+
+            <div class="reflection-line"></div>
+
+
+            <p>
+                <em>
+                    "Encontrar as palavras também
+                    é uma forma de nos encontrarmos."
+                </em>
+            </p>
+
+
+            <span>
+                — KIO
+            </span>
+
+        </section>
+
+
+        <!-- =================================================
+             VOLTAR
+             ================================================= -->
+
+        <section class="diz-back">
+
+            <a href="../index.html">
+
+                <span>
+                    ←
+                </span>
+
+                voltar ao início
+
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         JAVASCRIPT DESTA PÁGINA
+         ===================================================== -->
+
+    <script
+        src="../js/diz-me-responder.js"
+    ></script>
+
+</body>
+
+</html>

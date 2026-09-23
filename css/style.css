@@ -1,0 +1,2221 @@
+/* =========================================================
+   KIO — STYLE.CSS
+   Identidade:
+   Organic Editorial + Modern Minimalism
+
+   RECTIFICAÇÃO:
+   - Mantém diferenças de tamanho entre os elementos
+   - Reduz apenas os excessos de escala
+   - Evita secções desnecessariamente gigantes
+   - Mantém a estética original do KIO
+   ========================================================= */
+
+
+/* =========================================================
+   01 — VARIÁVEIS
+   ========================================================= */
+
+:root {
+    --cream: #f3eee3;
+    --cream-light: #faf8f2;
+
+    --olive: #737d4b;
+    --olive-dark: #3f492c;
+    --olive-soft: #aeb69a;
+
+    --charcoal: #252621;
+    --charcoal-soft: #35362f;
+
+    --beige: #d9cbb2;
+
+    --brown: #8b7054;
+    --brown-light: #b69d7f;
+
+    --white: #ffffff;
+
+    --serif: "Playfair Display", Georgia, serif;
+    --sans: "DM Sans", Arial, sans-serif;
+
+    --header-height: 82px;
+
+    --transition:
+        300ms cubic-bezier(.22, .61, .36, 1);
+}
+
+
+/* =========================================================
+   02 — RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: var(--sans);
+    font-weight: 400;
+    overflow-x: hidden;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+::selection {
+    background: var(--olive-dark);
+    color: var(--cream-light);
+}
+
+
+/* =========================================================
+   03 — HEADER
+   ========================================================= */
+
+.site-header {
+    position: fixed;
+    z-index: 1000;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: var(--header-height);
+
+    padding: 0 5vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(250, 248, 242, .92);
+
+    border-bottom:
+        1px solid rgba(63, 73, 44, .16);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    transition:
+        transform .45s ease,
+        background .35s ease,
+        border-color .35s ease;
+}
+
+.site-header.header-hidden {
+    transform: translateY(-100%);
+}
+
+
+/* =========================================================
+   04 — LOGO
+   ========================================================= */
+
+.logo {
+    position: relative;
+    z-index: 1002;
+
+    color: var(--charcoal);
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    letter-spacing: .08em;
+}
+
+
+/* =========================================================
+   05 — NAVEGAÇÃO
+   ========================================================= */
+
+.main-nav {
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+
+    gap: 2rem;
+}
+
+.main-nav a {
+    position: relative;
+
+    color: var(--olive-dark);
+
+    font-size: .72rem;
+    letter-spacing: .02em;
+
+    transition:
+        color var(--transition);
+}
+
+.main-nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -.35rem;
+
+    width: 0;
+    height: 1px;
+
+    background: currentColor;
+
+    transition:
+        width var(--transition);
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   06 — HAMBÚRGUER
+   ========================================================= */
+
+.menu-toggle {
+    position: relative;
+    z-index: 1003;
+
+    width: 44px;
+    height: 44px;
+
+    border: 0;
+    background: transparent;
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+}
+
+.menu-toggle span {
+    display: block;
+
+    width: 20px;
+    height: 1.5px;
+
+    background: var(--olive-dark);
+
+    transition:
+        transform .4s ease,
+        opacity .25s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform:
+        translateY(6.5px)
+        rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform:
+        translateY(-6.5px)
+        rotate(-45deg);
+}
+
+
+/* =========================================================
+   07 — MENU FLUTUANTE
+   ========================================================= */
+
+.menu-overlay {
+    position: fixed;
+    z-index: 999;
+
+    top: calc(var(--header-height) - 8px);
+    right: 4vw;
+
+    width: min(380px, 90vw);
+
+    padding: 1.4rem 1.5rem;
+
+    background: var(--charcoal);
+    color: var(--cream);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 20px 60px rgba(30, 31, 27, .20);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform:
+        translateY(-12px)
+        scale(.97);
+
+    transform-origin: top right;
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease,
+        transform .35s cubic-bezier(.22, .61, .36, 1);
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+.menu-inner {
+    width: 100%;
+}
+
+.menu-navigation {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-navigation a {
+    display: grid;
+
+    grid-template-columns: 35px 1fr;
+
+    align-items: center;
+
+    gap: .5rem;
+
+    padding: 1rem .15rem;
+
+    border-bottom:
+        1px solid rgba(243, 238, 227, .15);
+
+    font-size: .88rem;
+
+    transition:
+        color var(--transition),
+        padding-left var(--transition);
+}
+
+.menu-navigation a:last-child {
+    border-bottom: 0;
+}
+
+.menu-navigation a span {
+    color: var(--olive-soft);
+    font-size: .6rem;
+}
+
+.menu-navigation a:hover {
+    color: var(--olive-soft);
+    padding-left: .5rem;
+}
+
+
+/* =========================================================
+   08 — SECÇÕES
+   ========================================================= */
+
+/*
+   Antes:
+   min-height: 100svh em TODAS as secções.
+
+   Agora:
+   as secções são determinadas pelo conteúdo.
+   Apenas as secções que precisam de mais presença
+   recebem uma altura mínima própria.
+*/
+
+.section {
+    position: relative;
+
+    min-height: auto;
+
+    overflow: hidden;
+
+    padding:
+        8rem
+        7vw
+        6rem;
+}
+
+
+/* =========================================================
+   09 — HERO
+   ========================================================= */
+
+.hero {
+    position: relative;
+
+    min-height: 100svh;
+
+    background: var(--cream);
+    color: var(--charcoal);
+
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+
+    width: min(760px, 75vw);
+}
+
+.hero-kicker {
+    margin-bottom: 2rem;
+
+    color: var(--olive-dark);
+
+    font-size: .78rem;
+    font-weight: 500;
+
+    letter-spacing: .06em;
+}
+
+.hero h1 {
+    max-width: 760px;
+
+    font-family: var(--serif);
+
+    /*
+       Continua a ser o maior elemento da página,
+       mas deixa de ocupar espaço exagerado.
+    */
+    font-size:
+        clamp(3.8rem, 6.5vw, 6.8rem);
+
+    font-weight: 400;
+
+    line-height: .94;
+
+    letter-spacing: -.045em;
+}
+
+.hero h1 em {
+    color: var(--olive-dark);
+    font-weight: 400;
+}
+
+.hero-description {
+    max-width: 430px;
+
+    margin-top: 2rem;
+
+    color: var(--charcoal-soft);
+
+    font-size: .92rem;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   10 — HERO VISUAL
+   ========================================================= */
+
+.hero-visual {
+    position: absolute;
+
+    z-index: 1;
+
+    right: 8vw;
+    top: 29%;
+
+    width: 220px;
+    height: 220px;
+}
+
+.hero-magnifier {
+    position: absolute;
+
+    width: 125px;
+    height: 125px;
+
+    left: 25px;
+    top: 15px;
+
+    transform: rotate(-13deg);
+}
+
+.magnifier-glass {
+    position: absolute;
+
+    width: 82px;
+    height: 82px;
+
+    left: 0;
+    top: 0;
+
+    border:
+        2px solid var(--olive-dark);
+
+    border-radius: 50%;
+}
+
+.magnifier-glass::after {
+    content: "";
+
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    top: 18px;
+    right: 15px;
+
+    border-radius: 50%;
+
+    background: var(--olive);
+}
+
+.magnifier-handle {
+    position: absolute;
+
+    width: 55px;
+    height: 2px;
+
+    left: 68px;
+    top: 82px;
+
+    background: var(--olive-dark);
+
+    transform:
+        rotate(48deg);
+
+    transform-origin: left center;
+}
+
+.hero-doodle {
+    position: absolute;
+
+    border:
+        1px solid var(--brown);
+
+    opacity: .55;
+}
+
+.doodle-one {
+    width: 24px;
+    height: 24px;
+
+    right: 12px;
+    top: 5px;
+
+    border-radius: 50%;
+}
+
+.doodle-two {
+    width: 35px;
+    height: 10px;
+
+    left: 120px;
+    bottom: 35px;
+
+    border-radius: 50%;
+
+    transform:
+        rotate(-25deg);
+}
+
+.doodle-three {
+    width: 14px;
+    height: 14px;
+
+    left: 15px;
+    bottom: 8px;
+
+    transform:
+        rotate(45deg);
+}
+
+
+/* =========================================================
+   11 — PALAVRAS DO HERO
+   ========================================================= */
+
+.hero-words {
+    position: absolute;
+
+    z-index: 2;
+
+    right: 10vw;
+    bottom: 17%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 1rem;
+
+    font-family: var(--serif);
+
+    font-size: .9rem;
+    font-style: italic;
+
+    color: var(--brown);
+
+    transform:
+        rotate(-5deg);
+}
+
+.hero-words span:nth-child(2) {
+    color: var(--olive-dark);
+
+    transform:
+        translateY(-12px);
+}
+
+.hero-words span:nth-child(3) {
+    color: var(--charcoal);
+
+    transform:
+        translateY(4px);
+}
+
+
+/* =========================================================
+   12 — SETA
+   ========================================================= */
+
+.hero-bottom {
+    position: absolute;
+
+    z-index: 3;
+
+    left: 7vw;
+    bottom: 2rem;
+}
+
+.scroll-indicator {
+    display: block;
+
+    color: var(--olive-dark);
+
+    font-size: 1.15rem;
+
+    cursor: pointer;
+
+    animation:
+        scrollFloat 2s ease-in-out infinite;
+}
+
+@keyframes scrollFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(6px);
+    }
+}
+
+
+/* =========================================================
+   13 — O KIO É SOBRE TI
+   ========================================================= */
+
+.about-intro {
+    min-height: 78svh;
+
+    background: var(--olive-dark);
+
+    color: var(--cream-light);
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.about-kicker {
+    position: absolute;
+
+    top: 5rem;
+    left: 7vw;
+
+    color: var(--beige);
+
+    font-size: .78rem;
+    font-weight: 500;
+
+    letter-spacing: .04em;
+}
+
+.about-intro-content {
+    width: 100%;
+}
+
+
+/* =========================================================
+   14 — SEQUÊNCIA
+   ========================================================= */
+
+.communication-composition {
+    position: relative;
+
+    width: min(1000px, 88vw);
+
+    height: 300px;
+
+    margin-left: 2vw;
+}
+
+.communication-route {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: visible;
+}
+
+.communication-route path {
+    fill: none;
+
+    stroke: var(--olive-soft);
+
+    stroke-width: 1.5;
+
+    stroke-dasharray: 7 10;
+
+    opacity: .6;
+}
+
+.communication-step {
+    position: absolute;
+
+    z-index: 3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: .3rem;
+}
+
+.step-number {
+    display: none;
+}
+
+.communication-word {
+    color: var(--cream-light);
+
+    /*
+       É destaque dentro desta secção,
+       mas continua proporcional.
+    */
+    font-size:
+        clamp(1.35rem, 2.5vw, 2.2rem);
+
+    font-weight: 500;
+
+    letter-spacing: .01em;
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+    display: block;
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.communication-step.word-visible .communication-word {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+.step-dot {
+    width: 7px;
+    height: 7px;
+
+    margin-top: .35rem;
+
+    border-radius: 50%;
+
+    background: var(--brown-light);
+}
+
+.step-one {
+    left: 5%;
+    top: 47%;
+}
+
+.step-two {
+    left: 34%;
+    top: 20%;
+}
+
+.step-three {
+    left: 62%;
+    top: 52%;
+}
+
+.step-four {
+    right: 3%;
+    top: 15%;
+}
+
+
+/* =========================================================
+   15 — FRASE FINAL
+   ========================================================= */
+
+.about-reflection {
+    max-width: 600px;
+
+    margin-top: 1rem;
+    margin-left: 7vw;
+
+    color: var(--beige);
+
+    font-size: .92rem;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   16 — EXPLORA
+   ========================================================= */
+
+.explore-universe {
+    background: var(--cream-light);
+
+    color: var(--charcoal);
+
+    padding-top: 8rem;
+}
+
+.explore-kicker {
+    position: absolute;
+
+    top: 5rem;
+    left: 7vw;
+
+    color: var(--olive-dark);
+
+    font-size: .78rem;
+    font-weight: 500;
+
+    letter-spacing: .04em;
+}
+
+.section-heading {
+    margin-top: 1.5rem;
+    margin-bottom: 3.5rem;
+}
+
+.section-heading h2 {
+    font-family: var(--serif);
+
+    /*
+       Continua claramente maior que os itens da lista.
+    */
+    font-size:
+        clamp(3.5rem, 6.5vw, 6rem);
+
+    font-weight: 400;
+
+    line-height: .94;
+
+    letter-spacing: -.04em;
+}
+
+.section-heading h2 em {
+    color: var(--olive-dark);
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   17 — LISTA
+   ========================================================= */
+
+.explore-list {
+    width: min(850px, 90vw);
+}
+
+.explore-item {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        50px
+        1fr
+        35px;
+
+    align-items: center;
+
+    gap: 1rem;
+
+    padding: 1.4rem 0;
+
+    border-top:
+        1px solid rgba(37, 38, 33, .18);
+
+    transition:
+        padding-left var(--transition);
+}
+
+.explore-item:last-child {
+    border-bottom:
+        1px solid rgba(37, 38, 33, .18);
+}
+
+.explore-item:hover {
+    padding-left: .8rem;
+}
+
+.explore-number {
+    color: var(--brown);
+
+    font-size: .62rem;
+}
+
+.explore-info h3 {
+    margin-bottom: .4rem;
+
+    font-family: var(--serif);
+
+    /*
+       Menor que o título principal,
+       mas ainda é claramente visível.
+    */
+    font-size: 1.8rem;
+
+    font-weight: 400;
+}
+
+.explore-info p {
+    max-width: 420px;
+
+    color: var(--charcoal-soft);
+
+    font-size: .78rem;
+
+    line-height: 1.6;
+}
+
+.explore-arrow {
+    color: var(--olive-dark);
+
+    font-size: 1.1rem;
+
+    transition:
+        transform var(--transition);
+}
+
+.explore-item:hover .explore-arrow {
+    transform:
+        translate(4px, -4px);
+}
+
+
+/* =========================================================
+   18 — DECORAÇÃO EXPLORAR
+   ========================================================= */
+
+.explore-decoration {
+    position: absolute;
+
+    right: 8vw;
+    bottom: 10%;
+
+    width: 100px;
+    height: 100px;
+}
+
+.explore-decoration span {
+    position: absolute;
+
+    border:
+        1px solid var(--olive);
+}
+
+.explore-decoration span:nth-child(1) {
+    width: 60px;
+    height: 60px;
+
+    top: 0;
+    left: 20px;
+
+    border-radius: 50%;
+}
+
+.explore-decoration span:nth-child(2) {
+    width: 35px;
+    height: 35px;
+
+    right: 0;
+    bottom: 5px;
+
+    transform:
+        rotate(45deg);
+}
+
+.explore-decoration span:nth-child(3) {
+    width: 20px;
+    height: 2px;
+
+    left: 0;
+    bottom: 20px;
+
+    border: 0;
+
+    background: var(--brown);
+
+    transform:
+        rotate(-20deg);
+}
+
+
+/* =========================================================
+   19 — O TEU PERCURSO
+   ========================================================= */
+
+.journey {
+    min-height: 78svh;
+
+    background: var(--beige);
+
+    color: var(--charcoal);
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.journey-kicker {
+    position: absolute;
+
+    top: 5rem;
+    left: 7vw;
+
+    color: var(--brown);
+
+    font-size: .78rem;
+    font-weight: 500;
+}
+
+.journey-content-wrapper {
+    position: relative;
+    z-index: 5;
+}
+
+.journey-heading h2 {
+    max-width: 680px;
+
+    font-family: var(--serif);
+
+    font-size:
+        clamp(3.5rem, 6.5vw, 6rem);
+
+    font-weight: 400;
+
+    line-height: .94;
+
+    letter-spacing: -.04em;
+}
+
+.journey-heading em {
+    color: var(--olive-dark);
+    font-weight: 400;
+}
+
+.journey-content {
+    max-width: 500px;
+
+    margin-top: 2rem;
+}
+
+.journey-content p {
+    color: var(--charcoal-soft);
+
+    font-size: .9rem;
+
+    line-height: 1.7;
+}
+
+.text-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: .7rem;
+
+    margin-top: 1.6rem;
+
+    padding-bottom: .3rem;
+
+    border-bottom:
+        1px solid currentColor;
+
+    font-size: .74rem;
+}
+
+.text-button span {
+    transition:
+        transform var(--transition);
+}
+
+.text-button:hover span {
+    transform:
+        translate(3px, -3px);
+}
+
+
+/* =========================================================
+   20 — ESTRADA
+   ========================================================= */
+
+.journey-path {
+    position: absolute;
+
+    z-index: 1;
+
+    right: -5%;
+    bottom: 3%;
+
+    width: 76%;
+    height: 320px;
+
+    opacity: .95;
+}
+
+.journey-road {
+    width: 100%;
+    height: 100%;
+
+    overflow: visible;
+}
+
+.road-edge {
+    fill: none;
+
+    stroke: var(--olive-dark);
+
+    stroke-width: 3;
+
+    opacity: .55;
+}
+
+.road-center {
+    fill: none;
+
+    stroke: var(--brown);
+
+    stroke-width: 2;
+
+    stroke-dasharray: 14 17;
+
+    opacity: .85;
+}
+
+
+/* =========================================================
+   21 — PEGADAS
+   ========================================================= */
+
+.footprints {
+    position: absolute;
+
+    z-index: 3;
+
+    right: 9%;
+    top: 25%;
+
+    width: 170px;
+    height: 250px;
+
+    transform:
+        rotate(-8deg);
+}
+
+.footprint {
+    position: absolute;
+
+    width: 23px;
+    height: 39px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(63, 73, 44, .76);
+
+    box-shadow:
+        4px 6px 8px
+        rgba(37, 38, 33, .20);
+
+    opacity: .82;
+}
+
+.footprint-one {
+    left: 18px;
+    top: 200px;
+
+    transform:
+        rotate(-15deg);
+}
+
+.footprint-two {
+    left: 62px;
+    top: 160px;
+
+    transform:
+        rotate(12deg);
+}
+
+.footprint-three {
+    left: 27px;
+    top: 120px;
+
+    transform:
+        rotate(-13deg);
+}
+
+.footprint-four {
+    left: 72px;
+    top: 80px;
+
+    transform:
+        rotate(14deg);
+}
+
+.footprint-five {
+    left: 40px;
+    top: 38px;
+
+    transform:
+        rotate(-12deg);
+}
+
+.footprint-six {
+    left: 86px;
+    top: 0;
+
+    transform:
+        rotate(13deg);
+}
+
+
+/* =========================================================
+   22 — DIZ-ME
+   ========================================================= */
+
+.say-section {
+    min-height: 72svh;
+
+    background: var(--cream-light);
+
+    color: var(--charcoal);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.say-content {
+    position: relative;
+
+    z-index: 4;
+
+    width: min(760px, 80vw);
+
+    text-align: center;
+}
+
+.eyebrow {
+    margin-bottom: 1.6rem;
+
+    color: var(--brown);
+
+    font-size: .78rem;
+    font-weight: 500;
+
+    letter-spacing: .04em;
+}
+
+.say-content h2 {
+    font-family: var(--serif);
+
+    font-size:
+        clamp(3.5rem, 6.5vw, 6rem);
+
+    font-weight: 400;
+
+    line-height: .95;
+
+    letter-spacing: -.04em;
+}
+
+.say-first {
+    color: var(--brown);
+}
+
+.say-second {
+    color: var(--olive-dark);
+}
+
+.say-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: .7rem;
+
+    margin-top: 2rem;
+
+    padding:
+        .85rem 1.4rem;
+
+    border:
+        1px solid var(--charcoal);
+
+    border-radius: 100px;
+
+    font-size: .74rem;
+
+    transition:
+        background var(--transition),
+        color var(--transition),
+        transform var(--transition);
+}
+
+.say-button span {
+    transition:
+        transform var(--transition);
+}
+
+.say-button:hover {
+    background: var(--charcoal);
+
+    color: var(--cream);
+
+    transform:
+        translateY(-2px);
+}
+
+.say-button:hover span {
+    transform:
+        translate(3px, -3px);
+}
+
+
+/* =========================================================
+   23 — FORMAS ORGÂNICAS DIZ-ME
+   ========================================================= */
+
+.say-decoration {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+}
+
+.say-circle {
+    position: absolute;
+
+    width: 160px;
+    height: 160px;
+
+    right: 12%;
+    top: 18%;
+
+    border:
+        1px solid var(--olive-soft);
+
+    border-radius: 50%;
+
+    animation:
+        slowFloat 8s ease-in-out infinite;
+}
+
+.say-circle-small {
+    width: 60px;
+    height: 60px;
+
+    right: 25%;
+    bottom: 18%;
+
+    border-color:
+        var(--brown-light);
+
+    animation:
+        slowFloatReverse 6s ease-in-out infinite;
+}
+
+.say-shape {
+    position: absolute;
+
+    width: 42px;
+    height: 42px;
+
+    left: 12%;
+    bottom: 18%;
+
+    border:
+        1px solid var(--brown);
+
+    transform:
+        rotate(45deg);
+
+    animation:
+        shapeFloat 7s ease-in-out infinite;
+}
+
+.say-shape-two {
+    left: auto;
+    right: 8%;
+    bottom: 30%;
+
+    width: 28px;
+    height: 28px;
+
+    border-color:
+        var(--olive);
+
+    animation:
+        shapeFloatReverse 9s ease-in-out infinite;
+}
+
+.say-line {
+    position: absolute;
+
+    width: 75px;
+    height: 1px;
+
+    left: 10%;
+    top: 28%;
+
+    background:
+        var(--brown-light);
+
+    transform:
+        rotate(-25deg);
+}
+
+.say-blob {
+    position: absolute;
+
+    border-radius:
+        48% 52% 45% 55% /
+        55% 45% 55% 45%;
+
+    opacity: .35;
+
+    animation:
+        blobFloat 9s ease-in-out infinite;
+}
+
+.say-blob-one {
+    width: 90px;
+    height: 60px;
+
+    left: 8%;
+    top: 18%;
+
+    background:
+        var(--olive-soft);
+}
+
+.say-blob-two {
+    width: 65px;
+    height: 85px;
+
+    right: 16%;
+    bottom: 12%;
+
+    background:
+        var(--brown-light);
+
+    animation-delay:
+        -3s;
+}
+
+.say-dot {
+    position: absolute;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background:
+        var(--olive-dark);
+}
+
+.say-dot-one {
+    left: 22%;
+    top: 23%;
+}
+
+.say-dot-two {
+    right: 22%;
+    top: 70%;
+
+    background:
+        var(--brown);
+}
+
+
+/* =========================================================
+   24 — FORMAÇÃO
+   ========================================================= */
+
+.formation-section {
+    min-height: 78svh;
+
+    background:
+        #e7dfce;
+
+    color:
+        var(--charcoal);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 4rem;
+}
+
+.formation-content {
+    position: relative;
+
+    z-index: 5;
+
+    max-width: 590px;
+}
+
+.formation-question {
+    margin-bottom: 1.2rem;
+
+    color:
+        var(--brown);
+
+    font-size: .86rem;
+}
+
+.formation-content h2 {
+    font-family:
+        var(--serif);
+
+    font-size:
+        clamp(3.5rem, 6.5vw, 6rem);
+
+    font-weight: 400;
+
+    line-height: .94;
+
+    letter-spacing: -.04em;
+}
+
+.formation-content h2 em {
+    color:
+        var(--olive-dark);
+
+    font-weight: 400;
+}
+
+.formation-description {
+    max-width: 470px;
+
+    margin-top: 1.8rem;
+
+    color:
+        var(--charcoal-soft);
+
+    font-size: .9rem;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   25 — VISUAL DA FORMAÇÃO
+   ========================================================= */
+
+.formation-visual {
+    position: relative;
+
+    width: 420px;
+    height: 420px;
+
+    flex-shrink: 0;
+
+    margin-right: 1vw;
+}
+
+.moving-circle,
+.moving-ball,
+.moving-line {
+    position: absolute;
+
+    display: block;
+}
+
+.moving-circle {
+    border:
+        1px solid var(--olive);
+}
+
+.circle-large {
+    width: 270px;
+    height: 270px;
+
+    left: 70px;
+    top: 55px;
+
+    border-radius: 50%;
+
+    animation:
+        slowRotate 18s linear infinite;
+}
+
+.circle-medium {
+    width: 190px;
+    height: 190px;
+
+    left: 110px;
+    top: 95px;
+
+    border-color:
+        var(--brown);
+
+    border-radius: 50%;
+
+    animation:
+        slowRotateReverse 12s linear infinite;
+}
+
+.circle-small {
+    width: 85px;
+    height: 85px;
+
+    left: 162px;
+    top: 147px;
+
+    border-radius: 50%;
+
+    background:
+        var(--olive-soft);
+
+    border: 0;
+
+    animation:
+        pulseCircle 4s ease-in-out infinite;
+}
+
+.moving-ball {
+    width: 14px;
+    height: 14px;
+
+    border-radius: 50%;
+
+    background:
+        var(--olive-dark);
+}
+
+.ball-one {
+    left: 50px;
+    top: 85px;
+
+    animation:
+        floatOne 5s ease-in-out infinite;
+}
+
+.ball-two {
+    right: 38px;
+    top: 160px;
+
+    background:
+        var(--brown);
+
+    animation:
+        floatTwo 6s ease-in-out infinite;
+}
+
+.ball-three {
+    left: 130px;
+    bottom: 38px;
+
+    background:
+        var(--olive);
+
+    animation:
+        floatThree 7s ease-in-out infinite;
+}
+
+.ball-four {
+    right: 82px;
+    bottom: 55px;
+
+    width: 9px;
+    height: 9px;
+
+    background:
+        var(--brown-light);
+
+    animation:
+        floatTwo 8s ease-in-out infinite;
+}
+
+.moving-line {
+    width: 90px;
+    height: 1px;
+
+    background:
+        var(--brown);
+}
+
+.line-one {
+    top: 70px;
+    right: 5px;
+
+    transform:
+        rotate(30deg);
+
+    animation:
+        floatLineOne 5s ease-in-out infinite;
+}
+
+.line-two {
+    bottom: 90px;
+    left: 5px;
+
+    transform:
+        rotate(-25deg);
+
+    animation:
+        floatLineTwo 6s ease-in-out infinite;
+}
+
+.line-three {
+    right: 45px;
+    bottom: 25px;
+
+    width: 60px;
+
+    transform:
+        rotate(15deg);
+
+    background:
+        var(--olive-dark);
+
+    animation:
+        floatLineThree 7s ease-in-out infinite;
+}
+
+.floating-word {
+    position: absolute;
+
+    z-index: 5;
+
+    font-family:
+        var(--serif);
+
+    font-size:
+        clamp(1.15rem, 1.8vw, 1.6rem);
+
+    font-style: italic;
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 2px 10px
+        rgba(37, 38, 33, .08);
+}
+
+.word-leitura {
+    top: 10px;
+    left: 130px;
+
+    color:
+        var(--brown);
+
+    animation:
+        wordFloatOne 5s ease-in-out infinite;
+}
+
+.word-expressao {
+    right: 0;
+    bottom: 145px;
+
+    color:
+        var(--olive-dark);
+
+    animation:
+        wordFloatTwo 6s ease-in-out infinite;
+}
+
+.word-oratoria {
+    left: 25px;
+    bottom: 0;
+
+    color:
+        var(--charcoal);
+
+    animation:
+        wordFloatThree 7s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   26 — ANIMAÇÕES FORMAÇÃO
+   ========================================================= */
+
+@keyframes slowRotate {
+
+    from {
+        transform:
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+}
+
+@keyframes slowRotateReverse {
+
+    from {
+        transform:
+            rotate(360deg);
+    }
+
+    to {
+        transform:
+            rotate(0deg);
+    }
+}
+
+@keyframes pulseCircle {
+
+    0%,
+    100% {
+        transform:
+            scale(1);
+    }
+
+    50% {
+        transform:
+            scale(1.12);
+    }
+}
+
+@keyframes floatOne {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0);
+    }
+
+    50% {
+        transform:
+            translate(15px, -18px);
+    }
+}
+
+@keyframes floatTwo {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0);
+    }
+
+    50% {
+        transform:
+            translate(-14px, 14px);
+    }
+}
+
+@keyframes floatThree {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0);
+    }
+
+    50% {
+        transform:
+            translate(12px, -12px);
+    }
+}
+
+@keyframes floatLineOne {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0)
+            rotate(30deg);
+    }
+
+    50% {
+        transform:
+            translate(-10px, -8px)
+            rotate(35deg);
+    }
+}
+
+@keyframes floatLineTwo {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0)
+            rotate(-25deg);
+    }
+
+    50% {
+        transform:
+            translate(10px, 8px)
+            rotate(-20deg);
+    }
+}
+
+@keyframes floatLineThree {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0)
+            rotate(15deg);
+    }
+
+    50% {
+        transform:
+            translate(-8px, 8px)
+            rotate(20deg);
+    }
+}
+
+@keyframes wordFloatOne {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0)
+            rotate(-3deg);
+    }
+
+    50% {
+        transform:
+            translate(12px, -15px)
+            rotate(2deg);
+    }
+}
+
+@keyframes wordFloatTwo {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0)
+            rotate(4deg);
+    }
+
+    50% {
+        transform:
+            translate(-15px, 12px)
+            rotate(-3deg);
+    }
+}
+
+@keyframes wordFloatThree {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0)
+            rotate(-5deg);
+    }
+
+    50% {
+        transform:
+            translate(10px, -10px)
+            rotate(1deg);
+    }
+}
+
+@keyframes slowFloat {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0);
+    }
+
+    50% {
+        transform:
+            translate(-15px, 18px);
+    }
+}
+
+@keyframes slowFloatReverse {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0);
+    }
+
+    50% {
+        transform:
+            translate(12px, -12px);
+    }
+}
+
+@keyframes shapeFloat {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0)
+            rotate(45deg);
+    }
+
+    50% {
+        transform:
+            translate(10px, -15px)
+            rotate(60deg);
+    }
+}
+
+@keyframes shapeFloatReverse {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0)
+            rotate(45deg);
+    }
+
+    50% {
+        transform:
+            translate(-10px, 12px)
+            rotate(25deg);
+    }
+}
+
+@keyframes blobFloat {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translate(15px, -15px)
+            rotate(8deg);
+    }
+}
+
+
+/* =========================================================
+   27 — KIO / HAIR
+   ========================================================= */
+
+.future-section {
+    display: none;
+}
+
+
+/* =========================================================
+   28 — FOOTER
+   ========================================================= */
+
+.site-footer {
+    position: relative;
+
+    background:
+        var(--charcoal);
+
+    color:
+        var(--cream);
+
+    padding:
+        3.5rem 7vw 1.3rem;
+}
+
+.footer-main {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 4rem;
+
+    padding-bottom: 3.5rem;
+}
+
+.footer-brand h2 {
+    font-family:
+        var(--serif);
+
+    font-size:
+        clamp(4rem, 6vw, 5.5rem);
+
+    font-weight: 400;
+
+    line-height: .8;
+}
+
+.footer-brand p {
+    max-width: 300px;
+
+    margin-top: 1.7rem;
+
+    color:
+        var(--beige);
+
+    font-size: .72rem;
+
+    line-height: 1.6;
+}
+
+.footer-information {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 140px);
+
+    gap: 2.5rem;
+}
+
+.footer-label {
+    display: block;
+
+    margin-bottom: .8rem;
+
+    color:
+        var(--olive-soft);
+
+    font-size: .6rem;
+}
+
+.footer-column p {
+    color:
+        var(--beige);
+
+    font-size: .7rem;
+
+    line-height: 1.6;
+}
+
+.footer-bottom {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding-top: .9rem;
+
+    border-top:
+        1px solid
+        rgba(243, 238, 227, .15);
+
+    color:
+        var(--brown-light);
+
+    font-size: .58rem;
+}
+
+
+/* =========================================================
+   29 — REVEAL
+   ========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform:
+        translateY(25px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================================
+   30 — ACESSIBILIDADE
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior:
+            auto !important;
+
+        animation-duration:
+            .01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            .01ms !important;
+    }
+}

@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="KIO — O teu percurso de comunicação, evolução e descoberta."
+    >
+
+    <meta name="theme-color" content="#26352d">
+
+    <title>KIO — Percurso</title>
+
+    <!-- FONTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/percurso.css">
+</head>
+
+
+<body class="percurso-page">
+
+    <!-- =====================================================
+         TEXTURA
+         ===================================================== -->
+
+    <div class="percurso-noise" aria-hidden="true"></div>
+
+
+    <!-- =====================================================
+         ELEMENTOS DECORATIVOS
+         ===================================================== -->
+
+    <div class="percurso-orbit orbit-one" aria-hidden="true"></div>
+    <div class="percurso-orbit orbit-two" aria-hidden="true"></div>
+
+    <span class="floating-word floating-one" aria-hidden="true">
+        continua
+    </span>
+
+    <span class="floating-word floating-two" aria-hidden="true">
+        descobre
+    </span>
+
+
+    <!-- =====================================================
+         CABEÇALHO
+         ===================================================== -->
+
+    <header class="percurso-header">
+
+        <a
+            href="../index.html"
+            class="percurso-logo"
+            aria-label="Voltar ao início"
+        >
+            KIO
+        </a>
+
+
+        <div class="percurso-location">
+
+            <span>estás em</span>
+
+            <strong>percurso</strong>
+
+        </div>
+
+
+        <a
+            href="../index.html"
+            class="percurso-close"
+            aria-label="Voltar ao início"
+        >
+            ×
+        </a>
+
+    </header>
+
+
+    <main>
+
+
+        <!-- =================================================
+             INTRODUÇÃO
+             ================================================= -->
+
+        <section class="percurso-intro">
+
+            <div class="intro-decoration" aria-hidden="true">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+
+            <span class="section-kicker">
+                o teu caminho
+            </span>
+
+
+            <h1>
+                Cada passo
+                <br>
+                deixa uma <em>marca.</em>
+            </h1>
+
+
+            <p>
+                O KIO não é uma corrida para chegar ao fim.
+                É um espaço para perceberes onde estás,
+                experimentares coisas novas e descobrires
+                até onde consegues chegar.
+            </p>
+
+
+            <div class="intro-note">
+
+                <span class="note-number">
+                    01
+                </span>
+
+                <span>
+                    o percurso é teu.
+                    <br>
+                    o ritmo também.
+                </span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FRASE DO DIA
+             ================================================= -->
+
+        <section class="daily-message">
+
+            <div class="daily-label">
+                <span class="daily-dot"></span>
+                uma frase para hoje
+            </div>
+
+
+            <div class="daily-content">
+
+                <div class="quote-mark">
+                    “
+                </div>
+
+                <p id="dailyPhrase">
+                    Não precisas de falar perfeitamente.
+                    Precisas de te permitir começar.
+                </p>
+
+                <span class="daily-signature">
+                    — KIO
+                </span>
+
+            </div>
+
+
+            <div class="daily-footer">
+
+                <span>
+                    volta amanhã
+                </span>
+
+                <span id="dailyNumber">
+                    01
+                </span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ESTADO SEM PERCURSO
+             ================================================= -->
+
+        <section
+            class="no-path"
+            id="noPath"
+        >
+
+            <div class="no-path-decoration">
+
+                <div class="small-circle"></div>
+
+                <div class="path-line"></div>
+
+                <div class="small-circle faded"></div>
+
+            </div>
+
+
+            <span class="section-kicker">
+                ainda não começaste
+            </span>
+
+
+            <h2>
+                O teu percurso
+                <br>
+                ainda está <em>por escrever.</em>
+            </h2>
+
+
+            <p>
+                Não precisas de saber exactamente para onde vais.
+                O primeiro passo serve precisamente para descobrires.
+            </p>
+
+
+            <button
+                type="button"
+                class="start-path-button"
+                id="startPath"
+            >
+                começar o meu percurso
+                <span>↗</span>
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ESTADO COM PERCURSO
+             ================================================= -->
+
+        <section
+            class="path-area"
+            id="pathArea"
+        >
+
+            <!-- CABEÇALHO DO PERCURSO -->
+
+            <div class="path-heading">
+
+                <div>
+
+                    <span class="section-kicker">
+                        o teu percurso
+                    </span>
+
+                    <h2>
+                        Estás a construir
+                        <em>qualquer coisa.</em>
+                    </h2>
+
+                </div>
+
+
+                <div class="path-progress">
+
+                    <span>
+                        progresso
+                    </span>
+
+                    <strong id="progressText">
+                        20%
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- BARRA -->
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress-fill"
+                    id="progressFill"
+                ></div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CAMINHO
+                 ================================================= -->
+
+            <div class="journey">
+
+
+                <!-- ETAPA 01 -->
+
+                <article class="journey-step completed">
+
+                    <div class="step-marker">
+
+                        <span>
+                            01
+                        </span>
+
+                    </div>
+
+
+                    <div class="step-content">
+
+                        <span class="step-status">
+                            concluído
+                        </span>
+
+                        <h3>
+                            Descobre-te
+                        </h3>
+
+                        <p>
+                            Percebe como comunicas,
+                            onde te sentes mais confortável
+                            e onde ainda tens espaço para crescer.
+                        </p>
+
+                        <a
+                            href="explorar.html"
+                            class="step-link"
+                        >
+                            explorar
+                            <span>→</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ETAPA 02 -->
+
+                <article class="journey-step current">
+
+                    <div class="step-marker">
+
+                        <span>
+                            02
+                        </span>
+
+                    </div>
+
+
+                    <div class="step-content">
+
+                        <span class="step-status">
+                            estás aqui
+                        </span>
+
+                        <h3>
+                            Experimenta
+                        </h3>
+
+                        <p>
+                            Sai da teoria. Experimenta falar,
+                            improvisar, argumentar e encontrar
+                            a tua própria forma de comunicar.
+                        </p>
+
+                        <a
+                            href="desafios.html"
+                            class="step-link"
+                        >
+                            aceitar um desafio
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ETAPA 03 -->
+
+                <article class="journey-step">
+
+                    <div class="step-marker">
+
+                        <span>
+                            03
+                        </span>
+
+                    </div>
+
+
+                    <div class="step-content">
+
+                        <span class="step-status">
+                            próxima etapa
+                        </span>
+
+                        <h3>
+                            Treina
+                        </h3>
+
+                        <p>
+                            Trabalha a dicção, a voz, a expressão
+                            e a forma como transmites aquilo
+                            que queres dizer.
+                        </p>
+
+                        <a
+                            href="treina.html"
+                            class="step-link"
+                        >
+                            ir treinar
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ETAPA 04 -->
+
+                <article class="journey-step">
+
+                    <div class="step-marker">
+
+                        <span>
+                            04
+                        </span>
+
+                    </div>
+
+
+                    <div class="step-content">
+
+                        <span class="step-status">
+                            por descobrir
+                        </span>
+
+                        <h3>
+                            Arrisca
+                        </h3>
+
+                        <p>
+                            Usa aquilo que aprendeste em situações
+                            que te obrigam a sair da tua zona
+                            de conforto.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ETAPA 05 -->
+
+                <article class="journey-step">
+
+                    <div class="step-marker">
+
+                        <span>
+                            05
+                        </span>
+
+                    </div>
+
+
+                    <div class="step-content">
+
+                        <span class="step-status">
+                            mais à frente
+                        </span>
+
+                        <h3>
+                            Comunica
+                        </h3>
+
+                        <p>
+                            O objectivo nunca foi apenas falar melhor.
+                            É conseguires expressar quem és,
+                            aquilo que pensas e aquilo que tens para dizer.
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             COMPETÊNCIAS
+             ================================================= -->
+
+        <section class="skills-section">
+
+            <div class="skills-heading">
+
+                <span class="section-kicker">
+                    o que estás a construir
+                </span>
+
+                <h2>
+                    O teu percurso
+                    <br>
+                    deixa <em>marcas.</em>
+                </h2>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+
+                    <span class="skill-number">
+                        01
+                    </span>
+
+                    <h3>
+                        Expressividade
+                    </h3>
+
+                    <p>
+                        Dar vida àquilo que queres transmitir.
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <span class="skill-number">
+                        02
+                    </span>
+
+                    <h3>
+                        Clareza
+                    </h3>
+
+                    <p>
+                        Fazer com que a tua ideia chegue ao outro.
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <span class="skill-number">
+                        03
+                    </span>
+
+                    <h3>
+                        Confiança
+                    </h3>
+
+                    <p>
+                        Ocupar espaço sem precisares de pedir licença.
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <span class="skill-number">
+                        04
+                    </span>
+
+                    <h3>
+                        Escuta
+                    </h3>
+
+                    <p>
+                        Comunicar também é saber receber.
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <span class="skill-number">
+                        05
+                    </span>
+
+                    <h3>
+                        Argumentação
+                    </h3>
+
+                    <p>
+                        Defender uma ideia sem perder a capacidade de ouvir.
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card skill-card-dark">
+
+                    <span class="skill-number">
+                        +
+                    </span>
+
+                    <h3>
+                        Ainda vais descobrir
+                    </h3>
+
+                    <p>
+                        Nem todas as tuas capacidades têm nome.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             MENSAGEM FINAL
+             ================================================= -->
+
+        <section class="journey-final">
+
+            <div class="final-symbol">
+                +
+            </div>
+
+
+            <span class="section-kicker">
+                continua
+            </span>
+
+
+            <h2>
+                Não precisas
+                <br>
+                de chegar ao fim.
+                <br>
+                Precisas de <em>continuar.</em>
+            </h2>
+
+
+            <p>
+                O próximo passo pode ser pequeno.
+                Ainda assim, continua a ser um passo.
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             NAVEGAÇÃO
+             ================================================= -->
+
+        <section class="percurso-navigation">
+
+            <a
+                href="desafios.html"
+                class="nav-card nav-card-light"
+            >
+
+                <span class="nav-card-label">
+                    continuar
+                </span>
+
+                <strong>
+                    Desafios
+                </strong>
+
+                <span class="nav-arrow">
+                    ↗
+                </span>
+
+            </a>
+
+
+            <a
+                href="treina.html"
+                class="nav-card nav-card-dark"
+            >
+
+                <span class="nav-card-label">
+                    praticar
+                </span>
+
+                <strong>
+                    Treinar
+                </strong>
+
+                <span class="nav-arrow">
+                    ↗
+                </span>
+
+            </a>
+
+        </section>
+
+
+
+        <!-- =================================================
+             VOLTAR AO INÍCIO
+             ================================================= -->
+
+        <section class="percurso-back">
+
+            <a href="../index.html">
+
+                <span>←</span>
+
+                voltar ao início
+
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="../js/percurso.js"></script>
+
+</body>
+
+</html>
